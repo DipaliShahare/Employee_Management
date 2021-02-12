@@ -1,0 +1,76 @@
+<section >
+  <mat-card>
+  <form
+  [formGroup]="empForm"
+  (ngSubmit)="onAddEmp()"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="10px">
+  <mat-card>Onboard New Employee</mat-card>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Name" formControlName="name">
+      <mat-label>Name</mat-label>
+      <mat-hint>Please Enter your Name. </mat-hint>
+      <mat-error>Please Enter your Name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="User Name" formControlName="username">
+      <mat-label>User Name</mat-label>
+      <mat-hint>Please Enter UserName. </mat-hint>
+      <mat-error>Please Enter your UserName.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="email" matInput placeholder="Email" formControlName="email">
+      <mat-label>email</mat-label>
+      <mat-hint>Please Enter your Email. </mat-hint>
+      <mat-error>Please Enter your valid Email.</mat-error>
+    </mat-form-field>
+
+    <mat-label>Address</mat-label>
+    <mat-hint>Please Enter your address. </mat-hint>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Street" formControlName="street">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Suite" formControlName="suite">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="City" formControlName="city">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput placeholder="zip code" formControlName="zipcode">
+    </mat-form-field>
+
+    <!-- <mat-error >Please Enter your address.</mat-error> -->
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Contact Number"formControlName="phone">
+      <mat-label>Your Phone number</mat-label>
+      <mat-hint>Please Enter your phone number. </mat-hint>
+      <mat-error>Please Enter your valid calling number.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="url" matInput placeholder="Company website" formControlName="website">
+      <mat-label>Company website</mat-label>
+      <mat-hint>Please Enter your Company website. </mat-hint>
+      <mat-error>Please Enter your company website.</mat-error>
+    </mat-form-field>
+
+      <mat-label>Company Details</mat-label>
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="Company Name" formControlName="companyName">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Catch Phrase" formControlName="catchPhrase">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="BS" formControlName="bs">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="empForm.invalid">Save</button>
+  </form>
+</mat-card>
+</section>
+
+
