@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Employee } from "./employee.model";
@@ -8,7 +8,8 @@ import { Employee } from "./employee.model";
 export class EmployeeService {
   employee = new BehaviorSubject<Employee>(null);
   employees: Employee[] = [];
-  empChanged = new Subject<Employee[]>();
+  empChanged = new BehaviorSubject<Employee[]>([]);
+  editMode = new BehaviorSubject<boolean>(null);
 
   constructor( private http: HttpClient){}
 
@@ -25,17 +26,21 @@ export class EmployeeService {
     })
   }
 
+  updateEmployee(id, newEmployee){
+    this.employees[id-1]= newEmployee;
+    this.empChanged.next(this.employees.slice());
+  }
+
   deleteEmployee(id){
     this.employees = this.employees.filter(p => p.id !== id);
     this.empChanged.next(this.employees);
   }
 
   getEmployee(id){
-    let employee = this.employees.find(emp => {
-      emp.id == id;
-    });
+    let employee = this.employees.find(emp => emp.id === id);
     this.employee.next(employee);
   }
+
      //return this.employees.slice();
   // fetchEmployee(index: number) {
   //   return this.employees[index];

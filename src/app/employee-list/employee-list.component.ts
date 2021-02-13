@@ -50,8 +50,8 @@ export class EmployeeListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onEditEmployee(id: number) {
     this.empService.getEmployee(id);
+    this.empService.editMode.next(true);
     this.router.navigate(['edit']);
-
   }
 
   onDeleteEmployee(id: number) {

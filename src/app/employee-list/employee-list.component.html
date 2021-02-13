@@ -44,8 +44,8 @@
     <mat-cell *matCellDef="let element" >{{element.company.name}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="delete">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Delete</mat-header-cell>
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Edit</mat-header-cell>
     <mat-cell *matCellDef="let element"  >
       <button mat-mini-fab color="primary" (click)="onEditEmployee(element.id)">
         <mat-icon>create</mat-icon>

@@ -2,7 +2,7 @@
   <mat-card>
   <form
   [formGroup]="empForm"
-  (ngSubmit)="onAddEmp()"
+  (ngSubmit)="onSubmit()"
   fxLayout="column"
   fxLayoutAlign="center center"
   fxLayoutGap="10px">
@@ -28,23 +28,24 @@
 
     <mat-label>Address</mat-label>
     <mat-hint>Please Enter your address. </mat-hint>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Street" formControlName="street">
-    </mat-form-field>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Suite" formControlName="suite">
-    </mat-form-field>
-    <mat-form-field>
-      <input type="text" matInput placeholder="City" formControlName="city">
-    </mat-form-field>
-    <mat-form-field>
-      <input type="number" matInput placeholder="zip code" formControlName="zipcode">
-    </mat-form-field>
-
+    <div formGroupName="address" fxLayout='column'>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Street" formControlName="street">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Suite" formControlName="suite">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="City" formControlName="city">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="zip code" formControlName="zipcode">
+      </mat-form-field>
+    </div>
     <!-- <mat-error >Please Enter your address.</mat-error> -->
 
     <mat-form-field>
-      <input type="number" matInput placeholder="Contact Number"formControlName="phone">
+      <input type="text" matInput placeholder="Contact Number"formControlName="phone">
       <mat-label>Your Phone number</mat-label>
       <mat-hint>Please Enter your phone number. </mat-hint>
       <mat-error>Please Enter your valid calling number.</mat-error>
@@ -57,17 +58,17 @@
     </mat-form-field>
 
       <mat-label>Company Details</mat-label>
-
-    <mat-form-field>
-      <input type="text" matInput placeholder="Company Name" formControlName="companyName">
-    </mat-form-field>
-    <mat-form-field>
-      <input type="text" matInput placeholder="Catch Phrase" formControlName="catchPhrase">
-    </mat-form-field>
-    <mat-form-field>
-      <input type="text" matInput placeholder="BS" formControlName="bs">
-    </mat-form-field>
-
+    <div formGroupName="company" fxLayout='column'>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Company Name" formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Catch Phrase" formControlName="catchPhrase">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="BS" formControlName="bs">
+      </mat-form-field>
+    </div>
     <button mat-raised-button color="primary" type="submit" [disabled]="empForm.invalid">Save</button>
   </form>
 </mat-card>
